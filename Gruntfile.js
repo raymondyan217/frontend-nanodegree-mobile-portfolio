@@ -37,15 +37,20 @@ module.exports = function(grunt) {
         }
       }
     },
-    image_resize: {
-      resize: {
+    responsive_images: {
+      myTask: {
         options: {
-          width: 360,
-          height: 270
+          sizes: [{
+            width: 360,
+            height: 270
+          }]
         },
-        files: {
-          'dist/images/pizzeria.jpg': 'views/images/pizzeria.jpg'
-        }
+        files: [{
+          expand: true,
+          src: ['pizzeria.jpg'],
+          cwd: 'views/images/',
+          custom_dest: 'dist/images/'
+        }]
       }
     },
     uglify: {
@@ -94,6 +99,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-responsive-images');
   // Register default tasks
-  grunt.registerTask('default', ['cssmin', 'image_resize', 'imagemin', 'uglify', 'psi-ngrok'  ]);
+  grunt.registerTask('default', ['cssmin', 'responsive_images', 'imagemin', 'uglify', 'psi-ngrok'  ]);
 };
