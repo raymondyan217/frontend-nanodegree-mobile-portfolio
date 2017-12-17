@@ -79,3 +79,19 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+
+
+
+
+
+### List of optimizations
+- Critical Rendering Path
+Inlined the mandatory styles to prevent flash of unstyled content 
+
+- Frame Rate and  Computation Efficiency
+Declare variables once instead of declaring it everything it runs in the for loop
+Declare variables outside of for loop if it's a fixed value
+Grab DOM element once by moving it outside the for loop
+Use more efficient DOM API calls
+Use requestAnimationFrame

@@ -43,13 +43,15 @@ module.exports = function(grunt) {
           sizes: [{
             width: 360,
             height: 270
+          },{
+            width: 100
           }]
         },
         files: [{
           expand: true,
-          src: ['pizzeria.jpg'],
+          src: ['**.jpg'],
           cwd: 'views/images/',
-          custom_dest: 'dist/images/'
+          custom_dest: 'dist/images/{%= width %}/'
         }]
       }
     },
